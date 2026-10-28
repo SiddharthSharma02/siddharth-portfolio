@@ -77,17 +77,6 @@ export const projects: Project[] = [
     image: "/work/mountain-chapters.jpg",
   },
   {
-    slug: "univlabs",
-    name: "UnivLabs",
-    summary:
-      "Site for an Indian maker of 4K ICG surgical vision systems and laparoscopic instruments, built from the company's brand book.",
-    stack: ["Next.js", "TypeScript"],
-    year: "2026",
-    live: "https://univlabs-website.vercel.app",
-    repo: "https://github.com/SiddharthSharma02/univlabs-website",
-    image: "/work/univlabs.jpg",
-  },
-  {
     slug: "rsfp",
     name: "RSFP Organic Himachal",
     summary:
@@ -153,3 +142,68 @@ export const experiments: Project[] = [
     repo: "https://github.com/SiddharthSharma02/Facial-Emotion-Detector",
   },
 ];
+
+export const featured = {
+  name: "UnivLabs",
+  tagline: "Surgical systems, designed and made in India.",
+  summary:
+    "The biggest build I've shipped: the full website for UnivLabs Technologies, a maker of 4K ICG surgical vision systems, laparoscopic instruments and operating-room devices.",
+  points: [
+    "Built from the company's brand book, page by page",
+    "Six product families, from the Spectra vision suite to Am-SafeX",
+    "Specialty paths for general surgery, urology, gynaecology and orthopaedics",
+    "Demo requests and buy-or-pay-per-use pricing flows",
+  ],
+  stack: ["Next.js", "TypeScript", "Brand system"],
+  live: "https://univlabs-website.vercel.app",
+  repo: "https://github.com/SiddharthSharma02/univlabs-website",
+  shots: [
+    { src: "/work/univlabs.jpg", alt: "UnivLabs home page: See what white light can't" },
+    { src: "/work/univlabs-spectra.jpg", alt: "UnivLabs Spectra product page" },
+    { src: "/work/univlabs-products.jpg", alt: "UnivLabs products overview" },
+    { src: "/work/univlabs-specialties.jpg", alt: "UnivLabs specialties page" },
+  ],
+};
+
+export type Product = {
+  name: string;
+  kind: string;
+  size: string;
+  claims: string[];
+  image: string;
+  width: number;
+  height: number;
+  tone: "sugarfix" | "tavern";
+};
+
+export const products: Product[] = [
+  {
+    name: "SugarFix",
+    kind: "Monk fruit based sweetener",
+    size: "200 gm",
+    claims: ["Zero preservatives", "Zero calories", "Zero guilt"],
+    image: "/products/sugarfix.png",
+    width: 690,
+    height: 760,
+    tone: "sugarfix",
+  },
+  {
+    name: "Tavern",
+    kind: "Arabica coffee sweetened with monk fruit",
+    size: "100 gm",
+    claims: ["Sweet without sugar", "Low in calories", "Heavy on flavour"],
+    image: "/products/tavern.png",
+    width: 497,
+    height: 738,
+    tone: "tavern",
+  },
+];
+
+export const mochi = [
+  { src: "/mochi/lift.png", w: 640, h: 592, label: "Lifts", alt: "Mochi lifting a barbell overhead, winking" },
+  { src: "/mochi/run.png", w: 250, h: 372, label: "Runs", alt: "Mochi running with headphones on" },
+  { src: "/mochi/flip.png", w: 640, h: 663, label: "Flips", alt: "Mochi doing a cartwheel" },
+  { src: "/mochi/coffee.png", w: 640, h: 626, label: "Refuels", alt: "Mochi at a table raising a cup of coffee" },
+];
+
+export const ticker = ["SugarFix", "Tavern", "Mochi", "UnivLabs", "The Mountain Chapters", "RSFP Organic Himachal", "Everything Fine"];

@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { experiments, facts, projects, site, ventures } from "@/content/site";
+import { experiments, facts, featured, mochi, products, projects, site, ticker, ventures } from "@/content/site";
+import { Cursor } from "@/components/Cursor";
 import { ArrowDown, ArrowUpRight, GitHub, Instagram, LinkedIn, Mail } from "@/components/icons";
 import { Reveal } from "@/components/Reveal";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -9,6 +10,7 @@ const nav = [
   { href: "#about", label: "About" },
   { href: "#ventures", label: "Ventures" },
   { href: "#work", label: "Work" },
+  { href: "#mochi", label: "Mochi" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -32,6 +34,8 @@ export default function Home() {
       </div>
 
       <Reveal />
+      <Cursor />
+      <div className="grain" aria-hidden />
 
       <header className="site-header">
         <a href="#top" className="monogram" aria-label="Siddharth Sharma, back to top">
@@ -63,6 +67,7 @@ export default function Home() {
       <main id="top">
         {/* Hero */}
         <section className="hero" aria-labelledby="hero-name">
+          <div className="doodles doodles-hero" aria-hidden />
           <h1 id="hero-name" className="hero-name">
             <span className="mask">
               <span className="rise">siddharth</span>
@@ -119,6 +124,25 @@ export default function Home() {
 
         </section>
 
+        {/* Ticker: words slide under a running Mochi */}
+        <div className="ticker" aria-hidden>
+          <div className="ticker-track">
+            {[0, 1].map((n) => (
+              <span className="ticker-set" key={n}>
+                {ticker.map((t) => (
+                  <span className="ticker-item" key={t}>
+                    {t}
+                    <svg viewBox="0 0 24 24" className="ticker-mark">
+                      <path d="M12 2c1 5 5 9 10 10-5 1-9 5-10 10-1-5-5-9-10-10 5-1 9-5 10-10Z" />
+                    </svg>
+                  </span>
+                ))}
+              </span>
+            ))}
+          </div>
+          <Image src="/mochi/run.png" alt="" width={250} height={372} className="ticker-mochi" sizes="64px" />
+        </div>
+
         {/* About */}
         <section id="about" className="about section" aria-labelledby="about-title">
           <div className="about-copy">
@@ -152,6 +176,7 @@ export default function Home() {
 
         {/* Ventures */}
         <section id="ventures" className="ventures" aria-labelledby="ventures-title">
+          <div className="doodles doodles-ventures" aria-hidden />
           <div className="section">
             <h2 id="ventures-title" className="section-title" data-reveal>
               Two companies, one habit: build it properly.
@@ -177,6 +202,67 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Products */}
+        <section id="products" className="products section" aria-labelledby="products-title">
+          <div className="products-head">
+            <h2 id="products-title" className="section-title" data-reveal>
+              On the shelf
+            </h2>
+            <p className="products-note" data-reveal>
+              Two products I designed for Everything Fine, down to the pouch you hold. Both are sweetened with
+              monk fruit, not sugar.
+            </p>
+          </div>
+          <div className="product-grid">
+            {products.map((p, i) => (
+              <article className={`product product-${p.tone}`} key={p.name} data-reveal style={{ "--i": i } as React.CSSProperties}>
+                <div className="product-stage">
+                  <Image
+                    src={p.image}
+                    alt={`${p.name} pouch, ${p.size}`}
+                    width={p.width}
+                    height={p.height}
+                    sizes="(max-width: 760px) 70vw, 30vw"
+                    className="product-pouch"
+                  />
+                </div>
+                <div className="product-copy">
+                  <h3 className="product-name">{p.name}</h3>
+                  <p className="product-kind">{p.kind}</p>
+                  <ul className="product-claims">
+                    {p.claims.map((c) => (
+                      <li key={c}>{c}</li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* Mochi */}
+        <section id="mochi" className="mochi-band" aria-labelledby="mochi-title">
+          <div className="section mochi">
+            <div className="mochi-copy">
+              <h2 id="mochi-title" className="section-title" data-reveal>
+                Meet Mochi.
+              </h2>
+              <p className="mochi-note" data-reveal>
+                I created Mochi, the pixel mascot of Everything Fine. Mochi lifts, runs, cartwheels and never says
+                no to a sugar-free coffee. Mochi pops up around this page too, so keep an eye out.
+              </p>
+            </div>
+            <ul className="mochi-poses">
+              {mochi.map((m, i) => (
+                <li key={m.label} className="mochi-pose" data-reveal style={{ "--i": i } as React.CSSProperties}>
+                  <Image src={m.src} alt={m.alt} width={m.w} height={m.h} sizes="(max-width: 760px) 40vw, 18vw" />
+                  <span className="mochi-label">{m.label}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
         {/* Work */}
         <section id="work" className="work section" aria-labelledby="work-title">
           <div className="work-head">
@@ -184,9 +270,50 @@ export default function Home() {
               Selected work
             </h2>
             <p className="work-note" data-reveal>
-              Live sites I designed and built, from booking platforms to brand storefronts. Hover a row to peek.
+              Live sites I designed and built, from medical devices to mountain stays.
             </p>
           </div>
+          <article className="feature" data-reveal>
+            <div className="feature-copy">
+              <h3 className="feature-name">
+                <a href={featured.live} target="_blank" rel="noreferrer">
+                  {featured.name}
+                  <ArrowUpRight className="icon" />
+                </a>
+              </h3>
+              <p className="feature-tagline">{featured.tagline}</p>
+              <p className="feature-summary">{featured.summary}</p>
+              <ul className="feature-points">
+                {featured.points.map((pt) => (
+                  <li key={pt}>{pt}</li>
+                ))}
+              </ul>
+              <div className="feature-links">
+                <a href={featured.live} target="_blank" rel="noreferrer" className="pill-link pill-solid">
+                  Visit the site
+                  <ArrowUpRight className="icon" />
+                </a>
+                <a href={featured.repo} target="_blank" rel="noreferrer" className="pill-link">
+                  <GitHub className="icon" />
+                  Source
+                </a>
+              </div>
+            </div>
+            <div className="deck" aria-label="UnivLabs pages">
+              <p className="deck-sticker">
+                biggest
+                <br />
+                build yet
+              </p>
+              {featured.shots.map((sh, k) => (
+                <figure className="deck-shot" key={sh.src} style={{ "--k": k } as React.CSSProperties}>
+                  <Image src={sh.src} alt={sh.alt} width={1200} height={750} sizes="(max-width: 760px) 92vw, 52vw" />
+                </figure>
+              ))}
+            </div>
+          </article>
+
+          <h3 className="more-title" data-reveal>More client work</h3>
           <WorkIndex projects={projects} />
 
           <div className="lab" data-reveal>
@@ -242,7 +369,16 @@ export default function Home() {
 
         {/* Contact */}
         <section id="contact" className="contact" aria-labelledby="contact-title">
-          <div className="section">
+          <div className="doodles doodles-contact" aria-hidden />
+          <div className="section contact-inner">
+            <Image
+              src="/mochi/coffee.png"
+              alt="Mochi raising a cup of coffee"
+              width={640}
+              height={626}
+              sizes="(max-width: 760px) 40vw, 22vw"
+              className="contact-mochi"
+            />
             <h2 id="contact-title" className="contact-title" data-reveal>
               Got something worth <em>building?</em>
             </h2>
@@ -263,7 +399,7 @@ export default function Home() {
           </div>
           <footer className="site-footer">
             <span>© 2026 {site.name}</span>
-            <span>Built in Next.js</span>
+            <span>Built in Next.js · Mochi says hi</span>
             <a href="#top">Back to top</a>
           </footer>
         </section>

@@ -44,6 +44,9 @@ Design reference made binding by the user: https://kartikdhawan.in/ (editorial p
 - Photos: `Siddharth Images/` (half-marathon finish with medal; festive ethnic wear; gym mirror shot; mirror selfie).
 - Live projects: the-mountain-chapters.vercel.app (Next.js 16 + Supabase travel platform with admin), univlabs-website.vercel.app (medical device company site), rsfp-organic-himachal.vercel.app (pahadi pickles brand), fwnb.vercel.app (personal trainer site), everything-fine-frontend.vercel.app (Everything Fine launch page; private backend in TypeScript + Postgres).
 - Repos: ClipKart (YouTube → vertical shorts with captions), gpt4o-video-to-voiceover, Organ-Detection-During-Laparoscopic-Surgery (YOLOv8), Facial-Emotion-Detector.
+- Everything Fine products designed by Siddharth: SugarFix (monk fruit sweetener, 200 gm) and Tavern (Arabica coffee sweetened with monk fruit, 100 gm). Cutouts in `public/products/`.
+- Mochi, Everything Fine's pixel mascot, created by Siddharth. Poses in `public/mochi/` (lift, run, flip, coffee).
+- UnivLabs is the biggest project to date (user-confirmed) and is featured first.
 - No testimonials, metrics, client counts or dates were supplied. Do not fabricate them.
 
 ## Product Principles

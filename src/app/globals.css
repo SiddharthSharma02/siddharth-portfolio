@@ -602,3 +602,376 @@ a { color: inherit; text-decoration: none; }
   :root.reveal-ready [data-reveal]:not(.is-in) { transform: none; }
 }
 @keyframes fade-in { to { opacity: 1; } }
+
+/* =========================================================
+   Round 2: cursor, texture, ticker, products, Mochi, feature
+   ========================================================= */
+
+/* ---------- Cursor ---------- */
+:root { --cursor: var(--jalebi); }
+:root[data-cursor-tone="kadak"] { --cursor: var(--kadak); }
+
+html.has-cursor,
+html.has-cursor * { cursor: none !important; }
+
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 300;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+html.cursor-on .cursor-dot,
+html.cursor-on .cursor-ring { opacity: 1; }
+
+.cursor-dot::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  border-radius: 999px;
+  background: var(--cursor);
+  transition: background-color 250ms ease;
+}
+.cursor-ring::before,
+.cursor-ring::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  transition: transform 300ms var(--ease-out), background-color 250ms ease, border-color 250ms ease, opacity 250ms ease;
+}
+.cursor-ring::before {
+  width: 44px;
+  height: 44px;
+  margin: -22px 0 0 -22px;
+  border: 1.5px solid var(--cursor);
+  background: radial-gradient(circle, color-mix(in oklab, var(--cursor) 38%, transparent) 0%, color-mix(in oklab, var(--cursor) 10%, transparent) 55%, transparent 72%);
+}
+.cursor-ring::after {
+  width: 180px;
+  height: 180px;
+  margin: -90px 0 0 -90px;
+  background: radial-gradient(circle, color-mix(in oklab, var(--cursor) 22%, transparent) 0%, transparent 65%);
+  opacity: 0.8;
+}
+.cursor-ring[data-hot]::before { transform: scale(1.7); }
+.cursor-ring[data-hot]::after { transform: scale(1.25); opacity: 1; }
+.cursor-ring[data-press]::before { transform: scale(0.8); }
+
+/* ---------- Film grain (fixed, composite-only jitter) ---------- */
+.grain {
+  position: fixed;
+  inset: -120px;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.17  0 0 0 0 0.1  0 0 0 0 0.07  0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  animation: grain 900ms steps(5) infinite;
+}
+:root[data-theme="dark"] .grain { opacity: 0.1; mix-blend-mode: screen; filter: invert(1); }
+@keyframes grain {
+  0% { transform: translate3d(0, 0, 0); }
+  20% { transform: translate3d(-40px, 24px, 0); }
+  40% { transform: translate3d(32px, -36px, 0); }
+  60% { transform: translate3d(-24px, -12px, 0); }
+  80% { transform: translate3d(48px, 40px, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+/* ---------- Drifting doodle texture (from the pouch artwork) ---------- */
+.doodles {
+  position: absolute;
+  top: -320px;
+  left: -320px;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-color: var(--doodle, color-mix(in oklab, var(--fg) 8%, transparent));
+  -webkit-mask: url("/textures/doodles.svg") 0 0 / 320px 320px repeat;
+  mask: url("/textures/doodles.svg") 0 0 / 320px 320px repeat;
+  animation: drift 48s linear infinite;
+  will-change: transform;
+}
+@keyframes drift { to { transform: translate3d(320px, 320px, 0); } }
+
+.hero { overflow: hidden; isolation: isolate; }
+.hero > :not(.doodles) { position: relative; z-index: 1; }
+.doodles-hero {
+  --doodle: color-mix(in oklab, var(--fg) 7%, transparent);
+  -webkit-mask-image: url("/textures/doodles.svg"), linear-gradient(to bottom, #000 30%, transparent 95%);
+  -webkit-mask-composite: source-in;
+  mask-image: url("/textures/doodles.svg"), linear-gradient(to bottom, #000 30%, transparent 95%);
+  mask-size: 320px 320px, 100% 100%;
+  mask-repeat: repeat, no-repeat;
+  mask-composite: intersect;
+}
+
+.ventures,
+.contact { position: relative; overflow: hidden; isolation: isolate; }
+.ventures > .section,
+.contact > .section,
+.contact > .site-footer { position: relative; z-index: 1; }
+.doodles-ventures,
+.doodles-contact { --doodle: color-mix(in oklab, var(--kadak) 13%, transparent); animation-duration: 64s; }
+
+/* ---------- Ticker with running Mochi ---------- */
+.ticker {
+  position: relative;
+  margin-top: 72px;
+  background: var(--fg);
+  color: var(--bg);
+  overflow-x: clip;
+  overflow-y: visible;
+  padding-block: 18px;
+}
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+.ticker-set { display: flex; }
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  padding-right: 28px;
+  font-family: var(--display);
+  font-size: clamp(1.6rem, 3.2vw, 2.75rem);
+  line-height: 1.1;
+  white-space: nowrap;
+}
+.ticker-mark { width: 0.7em; height: 0.7em; fill: var(--jalebi); }
+.ticker-mochi {
+  position: absolute;
+  left: clamp(24px, 14vw, 220px);
+  bottom: calc(100% - 6px);
+  width: auto;
+  height: clamp(60px, 7vw, 92px);
+  animation: run-bob 380ms steps(2, jump-none) infinite alternate;
+  pointer-events: none;
+}
+@keyframes marquee { to { transform: translate3d(-50%, 0, 0); } }
+@keyframes run-bob {
+  from { transform: translateY(0) rotate(-2deg); }
+  to { transform: translateY(-5px) rotate(2deg); }
+}
+
+/* ---------- Products ---------- */
+.products-head { display: flex; justify-content: space-between; align-items: end; gap: 32px; flex-wrap: wrap; }
+.products-note { max-width: 40ch; color: var(--muted); font-size: 1.125rem; }
+.product-grid {
+  margin-top: clamp(40px, 6vw, 80px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(20px, 3vw, 40px);
+}
+.product { display: grid; gap: 24px; }
+.product-stage {
+  position: relative;
+  aspect-ratio: 5 / 5.4;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  overflow: hidden;
+  isolation: isolate;
+}
+.product-stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--stage-ink);
+  -webkit-mask: url("/textures/doodles.svg") 0 0 / 240px 240px repeat;
+  mask: url("/textures/doodles.svg") 0 0 / 240px 240px repeat;
+}
+.product-sugarfix .product-stage { background: var(--jalebi); --stage-ink: color-mix(in oklab, var(--chai) 26%, transparent); }
+.product-tavern .product-stage { background: var(--chai); --stage-ink: color-mix(in oklab, var(--kadak) 12%, transparent); }
+:root[data-theme="light"] .product-tavern .product-stage { background: color-mix(in oklab, var(--kadak) 10%, var(--chai)); }
+.product-pouch {
+  width: 64%;
+  height: auto;
+  filter: drop-shadow(0 28px 28px color-mix(in oklab, var(--kadak) 40%, transparent));
+  animation: float 6s ease-in-out infinite alternate;
+  transition: scale 500ms var(--ease-out), rotate 500ms var(--ease-out);
+}
+.product-tavern .product-pouch { width: 50%; animation-delay: -3s; }
+@keyframes float {
+  from { transform: translateY(0) rotate(-2deg); }
+  to { transform: translateY(-14px) rotate(1.5deg); }
+}
+@media (hover: hover) and (pointer: fine) {
+  .product:hover .product-pouch { scale: 1.05; rotate: 2deg; }
+}
+.product-name { font-family: var(--display); font-weight: 400; font-size: clamp(2.25rem, 4.4vw, 3.75rem); line-height: 1; letter-spacing: -0.02em; }
+.product-kind { margin-top: 6px; font-family: var(--italic); font-style: italic; font-size: 1.375rem; color: var(--muted); }
+.product-claims { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; font-size: 0.875rem; }
+.product-claims li { padding: 4px 12px; border: 1px solid var(--rule); border-radius: 999px; }
+
+/* ---------- Mochi (Pista band) ---------- */
+.mochi-band { background: var(--pista); color: var(--kadak); position: relative; overflow: hidden; }
+.mochi-band ::selection { background: var(--kadak); color: var(--pista); }
+.mochi { display: grid; gap: clamp(40px, 6vw, 72px); }
+.mochi-copy { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: end; }
+.mochi-note { max-width: 44ch; font-size: 1.125rem; }
+.mochi-poses { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(16px, 2.5vw, 32px); align-items: end; }
+.mochi-pose { display: grid; justify-items: center; gap: 14px; }
+.mochi-pose img {
+  width: 100%;
+  height: clamp(140px, 17vw, 240px);
+  object-fit: contain;
+  animation: idle 1.4s steps(2, jump-none) infinite alternate;
+  animation-delay: calc(var(--i, 0) * -350ms);
+  transition: transform 300ms var(--ease-out);
+}
+@keyframes idle { from { translate: 0 0; } to { translate: 0 -6px; } }
+@media (hover: hover) and (pointer: fine) {
+  .mochi-pose:hover img { transform: translateY(-14px) rotate(-3deg); }
+}
+.mochi-label {
+  font-size: 0.875rem;
+  padding: 4px 14px;
+  border: 1px solid color-mix(in oklab, var(--kadak) 35%, transparent);
+  border-radius: 999px;
+}
+
+/* ---------- UnivLabs feature ---------- */
+.feature {
+  margin-top: clamp(40px, 6vw, 80px);
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(32px, 5vw, 80px);
+  align-items: center;
+  padding-block: clamp(32px, 4vw, 56px);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.feature-name { font-family: var(--display); font-weight: 400; font-size: clamp(3rem, 7vw, 6.5rem); line-height: 0.95; letter-spacing: -0.03em; }
+.feature-name a { display: inline-flex; align-items: center; gap: 0.15em; }
+.feature-name .icon { width: 0.45em; height: 0.45em; transition: transform 300ms var(--ease-out); }
+@media (hover: hover) and (pointer: fine) { .feature-name a:hover .icon { transform: translate(4px, -4px); } }
+.feature-tagline { margin-top: 12px; font-family: var(--italic); font-style: italic; font-size: 1.5rem; line-height: 1.25; }
+.feature-summary { margin-top: 18px; color: var(--muted); max-width: 52ch; }
+.feature-points { margin-top: 20px; font-size: 0.9375rem; }
+.feature-points li { padding-block: 10px; border-top: 1px solid var(--rule); display: flex; gap: 12px; align-items: baseline; }
+.feature-points li::before { content: ""; flex: none; width: 7px; height: 7px; border-radius: 999px; background: var(--jalebi); translate: 0 -2px; }
+.feature-links { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px; }
+.pill-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  transition: background-color 200ms ease, border-color 200ms ease, transform 160ms var(--ease-out);
+}
+.pill-link:active { transform: scale(0.97); }
+.pill-solid { background: var(--jalebi); border-color: var(--jalebi); color: var(--kadak); font-weight: 600; }
+@media (hover: hover) and (pointer: fine) {
+  .pill-link:hover { border-color: var(--fg); }
+  .pill-solid:hover { background: color-mix(in oklab, var(--jalebi) 88%, var(--kadak)); }
+}
+
+.deck { position: relative; aspect-ratio: 1200 / 750; }
+.deck::before,
+.deck::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+}
+.deck::before { background: var(--jalebi); rotate: -3.5deg; translate: -10px 12px; }
+.deck::after { background: color-mix(in oklab, var(--fg) 14%, var(--bg)); rotate: 2deg; translate: 10px 6px; }
+.deck-shot {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 8px;
+  outline: 1px solid var(--rule);
+  outline-offset: -1px;
+  box-shadow: 0 30px 60px -30px color-mix(in oklab, var(--kadak) 60%, transparent);
+  opacity: 0;
+  animation: deck 14s var(--ease-out) infinite both;
+  animation-delay: calc(var(--k) * 3.5s);
+}
+.deck-shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+@keyframes deck {
+  0% { opacity: 0; transform: translateY(18px) scale(0.98); }
+  3%, 28% { opacity: 1; transform: none; }
+  33%, 100% { opacity: 0; transform: translateY(-10px) scale(1.01); }
+}
+.deck-sticker {
+  position: absolute;
+  z-index: 2;
+  top: -28px;
+  right: -16px;
+  width: 104px;
+  height: 104px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  border-radius: 999px;
+  background: var(--mithai);
+  color: var(--kadak);
+  font-family: var(--italic);
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.05;
+  rotate: 12deg;
+  box-shadow: 0 10px 24px -10px color-mix(in oklab, var(--kadak) 50%, transparent);
+  animation: wobble 4s ease-in-out infinite alternate;
+}
+@keyframes wobble { from { rotate: 8deg; } to { rotate: 16deg; } }
+.more-title { margin-top: clamp(64px, 8vw, 112px); font-family: var(--display); font-weight: 400; font-size: clamp(1.75rem, 3vw, 2.5rem); line-height: 1.1; }
+.more-title + .work-index { margin-top: 24px; }
+
+/* ---------- Contact Mochi ---------- */
+.contact-inner { position: relative; }
+.contact-mochi {
+  position: absolute;
+  right: var(--gutter);
+  bottom: clamp(40px, 6vw, 96px);
+  width: clamp(150px, 22vw, 320px);
+  height: auto;
+  animation: float 3.2s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+/* ---------- Round 2 responsive ---------- */
+@media (max-width: 1080px) {
+  .feature { grid-template-columns: 1fr; }
+  .deck { max-width: 720px; margin-right: 16px; }
+  .mochi-copy { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .section { padding-block: 80px; }
+  .ticker { margin-top: 56px; padding-block: 12px; }
+  .ticker-track { animation-duration: 26s; }
+  .product-grid { grid-template-columns: 1fr; gap: 56px; }
+  .mochi-poses { grid-template-columns: 1fr 1fr; row-gap: 32px; }
+  .mochi-pose img { height: 34vw; }
+  .deck-sticker { width: 84px; height: 84px; font-size: 0.95rem; top: -22px; right: -6px; }
+  .contact-mochi { position: static; display: block; width: 46vw; margin: 40px 0 0 auto; }
+  .doodles { animation-duration: 70s; }
+  .grain { opacity: 0.05; }
+}
+
+/* ---------- Round 2 reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .doodles,
+  .grain,
+  .ticker-track,
+  .ticker-mochi,
+  .product-pouch,
+  .mochi-pose img,
+  .contact-mochi,
+  .deck-sticker { animation: none; }
+  .deck-shot { animation: none; opacity: 1; }
+  .deck-shot:not(:first-of-type) { display: none; }
+}
