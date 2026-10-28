@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { experiments, facts, featured, mochi, products, projects, site, ticker, ventures } from "@/content/site";
+import { experiments, facts, featured, mochi, products, projects, site, ventures } from "@/content/site";
 import { Cursor } from "@/components/Cursor";
 import { ArrowDown, ArrowUpRight, GitHub, Instagram, LinkedIn, Mail } from "@/components/icons";
 import { Reveal } from "@/components/Reveal";
@@ -24,18 +24,17 @@ export default function Home() {
   return (
     <>
       <div className="intro" aria-hidden>
-        <div className="intro-panel" />
-        <p className="intro-word">
-          <span>Siddharth</span>
-        </p>
-        <p className="intro-sub">
-          <span>engineer · co-founder</span>
-        </p>
+        <div className="intro-stack">
+          <p className="intro-line intro-line-1">
+            Engineer <span className="intro-count" />
+          </p>
+          <p className="intro-line intro-line-2">Founder</p>
+          <p className="intro-credit">Siddharth Sharma · made in Next.js</p>
+        </div>
       </div>
 
       <Reveal />
       <Cursor />
-      <div className="grain" aria-hidden />
 
       <header className="site-header">
         <a href="#top" className="monogram" aria-label="Siddharth Sharma, back to top">
@@ -67,7 +66,6 @@ export default function Home() {
       <main id="top">
         {/* Hero */}
         <section className="hero" aria-labelledby="hero-name">
-          <div className="doodles doodles-hero" aria-hidden />
           <h1 id="hero-name" className="hero-name">
             <span className="mask">
               <span className="rise">siddharth</span>
@@ -124,25 +122,6 @@ export default function Home() {
 
         </section>
 
-        {/* Ticker: words slide under a running Mochi */}
-        <div className="ticker" aria-hidden>
-          <div className="ticker-track">
-            {[0, 1].map((n) => (
-              <span className="ticker-set" key={n}>
-                {ticker.map((t) => (
-                  <span className="ticker-item" key={t}>
-                    {t}
-                    <svg viewBox="0 0 24 24" className="ticker-mark">
-                      <path d="M12 2c1 5 5 9 10 10-5 1-9 5-10 10-1-5-5-9-10-10 5-1 9-5 10-10Z" />
-                    </svg>
-                  </span>
-                ))}
-              </span>
-            ))}
-          </div>
-          <Image src="/mochi/run.png" alt="" width={250} height={372} className="ticker-mochi" sizes="64px" />
-        </div>
-
         {/* About */}
         <section id="about" className="about section" aria-labelledby="about-title">
           <div className="about-copy">
@@ -176,7 +155,6 @@ export default function Home() {
 
         {/* Ventures */}
         <section id="ventures" className="ventures" aria-labelledby="ventures-title">
-          <div className="doodles doodles-ventures" aria-hidden />
           <div className="section">
             <h2 id="ventures-title" className="section-title" data-reveal>
               Two companies, one habit: build it properly.
@@ -369,7 +347,6 @@ export default function Home() {
 
         {/* Contact */}
         <section id="contact" className="contact" aria-labelledby="contact-title">
-          <div className="doodles doodles-contact" aria-hidden />
           <div className="section contact-inner">
             <Image
               src="/mochi/coffee.png"

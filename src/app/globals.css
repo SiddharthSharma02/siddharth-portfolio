@@ -101,55 +101,63 @@ a { color: inherit; text-decoration: none; }
   max-width: 16ch;
 }
 
-/* ---------- Intro (once per session) ---------- */
+/* ---------- Splash (once per session) ---------- */
+@property --n {
+  syntax: "<integer>";
+  inherits: false;
+  initial-value: 0;
+}
 .intro {
   position: fixed;
   inset: 0;
   z-index: 100;
   display: grid;
-  place-content: center;
-  justify-items: center;
-  gap: 12px;
+  place-items: center;
   background: var(--kadak);
   color: var(--chai);
   pointer-events: none;
-  animation: intro-out 900ms var(--ease-in-out) 1500ms forwards;
+  animation: intro-out 900ms var(--ease-in-out) 2300ms forwards;
 }
-.intro-panel {
-  position: absolute;
-  inset: 0;
-  background: var(--jalebi);
-  clip-path: inset(100% 0 0 0);
-  animation: panel-up 700ms var(--ease-in-out) 1000ms forwards;
-}
-.intro-word,
-.intro-sub {
-  position: relative;
-  overflow: hidden;
-  line-height: 1;
-}
-.intro-word span,
-.intro-sub span {
-  display: block;
-  transform: translateY(110%);
-  animation: rise 800ms var(--ease-out) 150ms forwards;
-}
-.intro-word { font-family: var(--display); font-size: clamp(3.5rem, 13vw, 11rem); padding-bottom: 0.08em; }
-.intro-sub {
-  font-size: 0.8125rem;
-  letter-spacing: 0.24em;
+.intro-stack { display: grid; justify-items: start; }
+.intro-line {
+  font-family: var(--font-condensed), "League Gothic", "Arial Narrow", sans-serif;
+  font-size: clamp(5.5rem, 15vw, 13rem);
+  line-height: 0.84;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
+  opacity: 0.1;
+  transform: translateY(10px);
+  animation: light-up 700ms var(--ease-out) forwards;
 }
-.intro-sub span { animation-delay: 380ms; }
-
+.intro-line-1 { color: var(--pista); animation-delay: 250ms; }
+.intro-line-2 { color: var(--mithai); animation-delay: 650ms; }
+.intro-count {
+  display: inline-block;
+  min-width: 3.2ch;
+  margin-left: 0.18em;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--jalebi);
+  counter-reset: n var(--n);
+  animation: count 1700ms cubic-bezier(0.65, 0, 0.35, 1) 300ms forwards;
+}
+.intro-count::after { content: counter(n) "\2019"; }
+.intro-credit {
+  justify-self: center;
+  margin-top: 28px;
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  color: color-mix(in oklab, var(--chai) 65%, var(--kadak));
+  opacity: 0;
+  animation: light-up 600ms var(--ease-out) 1100ms forwards;
+}
+@keyframes light-up { to { opacity: 1; transform: none; } }
+@keyframes count { to { --n: 100; } }
 @keyframes rise { to { transform: translateY(0); } }
-@keyframes panel-up { to { clip-path: inset(0 0 0 0); } }
 @keyframes intro-out {
   0% { clip-path: inset(0 0 0 0); }
   99% { visibility: visible; }
   100% { clip-path: inset(0 0 100% 0); visibility: hidden; }
 }
-
 :root[data-intro="skip"] .intro { display: none; }
 
 /* ---------- Header ---------- */
@@ -234,7 +242,7 @@ a { color: inherit; text-decoration: none; }
 @media (min-width: 1100px) { .side-email { display: block; } }
 
 /* ---------- Hero ---------- */
-:root { --d: 1.9s; }
+:root { --d: 2.7s; }
 :root[data-intro="skip"] { --d: 0.1s; }
 
 .hero {
@@ -569,6 +577,7 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width: 760px) {
   :root { --header-h: 64px; }
+  .intro-line { font-size: 20vw; }
   .nav-list li:not([data-core]) { display: none; }
   .nav-list { gap: 20px; }
   .hero { min-height: 100svh; gap: 40px; }
@@ -597,169 +606,40 @@ a { color: inherit; text-decoration: none; }
 @media (prefers-reduced-motion: reduce) {
   .badge-ring { animation: none; }
   .rise { transform: none; animation: none; }
+  .intro { display: none; }
   .hero-grid,
   .badge { animation: fade-in 400ms ease forwards; }
   :root.reveal-ready [data-reveal]:not(.is-in) { transform: none; }
 }
 @keyframes fade-in { to { opacity: 1; } }
 
-/* =========================================================
-   Round 2: cursor, texture, ticker, products, Mochi, feature
-   ========================================================= */
+/* ---------- Round 2: products, Mochi, feature ---------- */
 
-/* ---------- Cursor ---------- */
-:root { --cursor: var(--jalebi); }
-:root[data-cursor-tone="kadak"] { --cursor: var(--kadak); }
-
+/* ---------- Cursor: one circle, inverted ---------- */
 html.has-cursor,
 html.has-cursor * { cursor: none !important; }
-
-.cursor-dot,
-.cursor-ring {
+.cursor {
   position: fixed;
   top: 0;
   left: 0;
   z-index: 300;
   pointer-events: none;
+  mix-blend-mode: difference;
   opacity: 0;
   transition: opacity 200ms ease;
 }
-html.cursor-on .cursor-dot,
-html.cursor-on .cursor-ring { opacity: 1; }
-
-.cursor-dot::before {
-  content: "";
+html.cursor-on .cursor { opacity: 1; }
+.cursor-blob {
   position: absolute;
-  width: 8px;
-  height: 8px;
-  margin: -4px 0 0 -4px;
-  border-radius: 999px;
-  background: var(--cursor);
-  transition: background-color 250ms ease;
-}
-.cursor-ring::before,
-.cursor-ring::after {
-  content: "";
-  position: absolute;
-  border-radius: 999px;
-  transition: transform 300ms var(--ease-out), background-color 250ms ease, border-color 250ms ease, opacity 250ms ease;
-}
-.cursor-ring::before {
   width: 44px;
   height: 44px;
   margin: -22px 0 0 -22px;
-  border: 1.5px solid var(--cursor);
-  background: radial-gradient(circle, color-mix(in oklab, var(--cursor) 38%, transparent) 0%, color-mix(in oklab, var(--cursor) 10%, transparent) 55%, transparent 72%);
+  border-radius: 999px;
+  background: var(--fill, #d4dad1);
+  transition: transform 350ms var(--ease-out), background-color 300ms ease;
 }
-.cursor-ring::after {
-  width: 180px;
-  height: 180px;
-  margin: -90px 0 0 -90px;
-  background: radial-gradient(circle, color-mix(in oklab, var(--cursor) 22%, transparent) 0%, transparent 65%);
-  opacity: 0.8;
-}
-.cursor-ring[data-hot]::before { transform: scale(1.7); }
-.cursor-ring[data-hot]::after { transform: scale(1.25); opacity: 1; }
-.cursor-ring[data-press]::before { transform: scale(0.8); }
-
-/* ---------- Film grain (fixed, composite-only jitter) ---------- */
-.grain {
-  position: fixed;
-  inset: -120px;
-  z-index: 90;
-  pointer-events: none;
-  opacity: 0.07;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.17  0 0 0 0 0.1  0 0 0 0 0.07  0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-  animation: grain 900ms steps(5) infinite;
-}
-:root[data-theme="dark"] .grain { opacity: 0.1; mix-blend-mode: screen; filter: invert(1); }
-@keyframes grain {
-  0% { transform: translate3d(0, 0, 0); }
-  20% { transform: translate3d(-40px, 24px, 0); }
-  40% { transform: translate3d(32px, -36px, 0); }
-  60% { transform: translate3d(-24px, -12px, 0); }
-  80% { transform: translate3d(48px, 40px, 0); }
-  100% { transform: translate3d(0, 0, 0); }
-}
-
-/* ---------- Drifting doodle texture (from the pouch artwork) ---------- */
-.doodles {
-  position: absolute;
-  top: -320px;
-  left: -320px;
-  right: 0;
-  bottom: 0;
-  z-index: 0;
-  pointer-events: none;
-  background-color: var(--doodle, color-mix(in oklab, var(--fg) 8%, transparent));
-  -webkit-mask: url("/textures/doodles.svg") 0 0 / 320px 320px repeat;
-  mask: url("/textures/doodles.svg") 0 0 / 320px 320px repeat;
-  animation: drift 48s linear infinite;
-  will-change: transform;
-}
-@keyframes drift { to { transform: translate3d(320px, 320px, 0); } }
-
-.hero { overflow: hidden; isolation: isolate; }
-.hero > :not(.doodles) { position: relative; z-index: 1; }
-.doodles-hero {
-  --doodle: color-mix(in oklab, var(--fg) 7%, transparent);
-  -webkit-mask-image: url("/textures/doodles.svg"), linear-gradient(to bottom, #000 30%, transparent 95%);
-  -webkit-mask-composite: source-in;
-  mask-image: url("/textures/doodles.svg"), linear-gradient(to bottom, #000 30%, transparent 95%);
-  mask-size: 320px 320px, 100% 100%;
-  mask-repeat: repeat, no-repeat;
-  mask-composite: intersect;
-}
-
-.ventures,
-.contact { position: relative; overflow: hidden; isolation: isolate; }
-.ventures > .section,
-.contact > .section,
-.contact > .site-footer { position: relative; z-index: 1; }
-.doodles-ventures,
-.doodles-contact { --doodle: color-mix(in oklab, var(--kadak) 13%, transparent); animation-duration: 64s; }
-
-/* ---------- Ticker with running Mochi ---------- */
-.ticker {
-  position: relative;
-  margin-top: 72px;
-  background: var(--fg);
-  color: var(--bg);
-  overflow-x: clip;
-  overflow-y: visible;
-  padding-block: 18px;
-}
-.ticker-track {
-  display: flex;
-  width: max-content;
-  animation: marquee 38s linear infinite;
-}
-.ticker-set { display: flex; }
-.ticker-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 28px;
-  padding-right: 28px;
-  font-family: var(--display);
-  font-size: clamp(1.6rem, 3.2vw, 2.75rem);
-  line-height: 1.1;
-  white-space: nowrap;
-}
-.ticker-mark { width: 0.7em; height: 0.7em; fill: var(--jalebi); }
-.ticker-mochi {
-  position: absolute;
-  left: clamp(24px, 14vw, 220px);
-  bottom: calc(100% - 6px);
-  width: auto;
-  height: clamp(60px, 7vw, 92px);
-  animation: run-bob 380ms steps(2, jump-none) infinite alternate;
-  pointer-events: none;
-}
-@keyframes marquee { to { transform: translate3d(-50%, 0, 0); } }
-@keyframes run-bob {
-  from { transform: translateY(0) rotate(-2deg); }
-  to { transform: translateY(-5px) rotate(2deg); }
-}
+.cursor[data-hot] .cursor-blob { transform: scale(1.8); }
+.cursor[data-press] .cursor-blob { transform: scale(0.75); }
 
 /* ---------- Products ---------- */
 .products-head { display: flex; justify-content: space-between; align-items: end; gap: 32px; flex-wrap: wrap; }
@@ -780,17 +660,8 @@ html.cursor-on .cursor-ring { opacity: 1; }
   overflow: hidden;
   isolation: isolate;
 }
-.product-stage::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background-color: var(--stage-ink);
-  -webkit-mask: url("/textures/doodles.svg") 0 0 / 240px 240px repeat;
-  mask: url("/textures/doodles.svg") 0 0 / 240px 240px repeat;
-}
-.product-sugarfix .product-stage { background: var(--jalebi); --stage-ink: color-mix(in oklab, var(--chai) 26%, transparent); }
-.product-tavern .product-stage { background: var(--chai); --stage-ink: color-mix(in oklab, var(--kadak) 12%, transparent); }
+.product-sugarfix .product-stage { background: var(--jalebi); }
+.product-tavern .product-stage { background: var(--chai); }
 :root[data-theme="light"] .product-tavern .product-stage { background: color-mix(in oklab, var(--kadak) 10%, var(--chai)); }
 .product-pouch {
   width: 64%;
@@ -951,23 +822,15 @@ html.cursor-on .cursor-ring { opacity: 1; }
 }
 @media (max-width: 760px) {
   .section { padding-block: 80px; }
-  .ticker { margin-top: 56px; padding-block: 12px; }
-  .ticker-track { animation-duration: 26s; }
   .product-grid { grid-template-columns: 1fr; gap: 56px; }
   .mochi-poses { grid-template-columns: 1fr 1fr; row-gap: 32px; }
   .mochi-pose img { height: 34vw; }
   .deck-sticker { width: 84px; height: 84px; font-size: 0.95rem; top: -22px; right: -6px; }
   .contact-mochi { position: static; display: block; width: 46vw; margin: 40px 0 0 auto; }
-  .doodles { animation-duration: 70s; }
-  .grain { opacity: 0.05; }
 }
 
 /* ---------- Round 2 reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
-  .doodles,
-  .grain,
-  .ticker-track,
-  .ticker-mochi,
   .product-pouch,
   .mochi-pose img,
   .contact-mochi,
@@ -975,3 +838,4 @@ html.cursor-on .cursor-ring { opacity: 1; }
   .deck-shot { animation: none; opacity: 1; }
   .deck-shot:not(:first-of-type) { display: none; }
 }
+

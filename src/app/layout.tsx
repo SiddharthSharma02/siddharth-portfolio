@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Hanken_Grotesk, Instrument_Serif, Rozha_One } from "next/font/google";
+import { Hanken_Grotesk, Instrument_Serif, League_Gothic, Rozha_One } from "next/font/google";
 import { site } from "@/content/site";
 import "./globals.css";
 
@@ -16,6 +16,12 @@ const italic = Instrument_Serif({
   style: "italic",
   subsets: ["latin"],
   display: "swap",
+});
+
+const condensed = League_Gothic({
+  variable: "--font-condensed",
+  subsets: ["latin"],
+  display: "block",
 });
 
 const text = Hanken_Grotesk({
@@ -52,7 +58,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       data-theme="light"
       suppressHydrationWarning
-      className={`${display.variable} ${italic.variable} ${text.variable}`}
+      className={`${display.variable} ${italic.variable} ${condensed.variable} ${text.variable}`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: boot }} />

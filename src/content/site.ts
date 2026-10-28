@@ -206,4 +206,3 @@ export const mochi = [
   { src: "/mochi/coffee.png", w: 640, h: 626, label: "Refuels", alt: "Mochi at a table raising a cup of coffee" },
 ];
 
-export const ticker = ["SugarFix", "Tavern", "Mochi", "UnivLabs", "The Mountain Chapters", "RSFP Organic Himachal", "Everything Fine"];
