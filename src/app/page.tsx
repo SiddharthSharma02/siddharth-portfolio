@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { experiments, facts, featured, mochi, products, projects, site, ventures } from "@/content/site";
 import { Cursor } from "@/components/Cursor";
+import { IntroCount } from "@/components/IntroCount";
 import { HeroVideo } from "@/components/HeroVideo";
 import { ArrowDown, ArrowUpRight, GitHub, Instagram, LinkedIn, Mail, Phone, WhatsApp, XLogo } from "@/components/icons";
 import { Reveal } from "@/components/Reveal";
@@ -22,7 +23,7 @@ export default function Home() {
       <div className="intro" aria-hidden>
         <div className="intro-stack">
           <p className="intro-line intro-line-1">
-            Engineer <span className="intro-count" />
+            Engineer <IntroCount />
           </p>
           <p className="intro-line intro-line-2">Founder</p>
           <p className="intro-credit">Siddharth Sharma · made in Next.js</p>
