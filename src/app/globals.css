@@ -611,7 +611,7 @@ a { color: inherit; text-decoration: none; }
   .hero { min-height: 100svh; gap: 40px; }
   .hero-name { font-size: 20.5vw; flex-direction: column; line-height: 0.9; }
   .hero-grid { grid-template-columns: 1fr; gap: 32px; position: relative; }
-  .badge { position: absolute; right: 0; bottom: calc(53vw - 52px); z-index: 2; background: var(--bg); }
+  .badge { position: absolute; grid-column: auto; grid-row: auto; left: 0; right: auto; bottom: 112px; z-index: 2; }
   .hero-aside { justify-content: space-between; }
   .hero-photo { width: 40vw; }
   .tag-big { font-size: 2rem; }
@@ -867,5 +867,6 @@ html.cursor-on .cursor { opacity: 1; }
   .deck-shot { animation: none; opacity: 1; }
   .deck-shot:not(:first-of-type) { display: none; }
 }
+
 
 
