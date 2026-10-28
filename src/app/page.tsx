@@ -127,7 +127,7 @@ export default function Home() {
                 backends on Postgres and Supabase, and the admin tools that keep a business running day to day.
               </p>
               <p>
-                As <strong>Technical Head at Shramic Crossgar Private Limited</strong> I own the technology end to
+                As <strong>Technical Head at Shramik Rojgar Private Limited</strong> I own the technology end to
                 end. As <strong>co-founder of Everything Fine</strong>, a food &amp; beverage brand, I build the
                 product and the company around it. Both jobs teach the same lesson: ship, watch real people use it,
                 fix what hurts.

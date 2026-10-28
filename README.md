@@ -1,6 +1,6 @@
 # Siddharth Sharma — portfolio
 
-Personal site for Siddharth Sharma: engineer, co-founder of Everything Fine, Technical Head at Shramic Crossgar Private Limited.
+Personal site for Siddharth Sharma: engineer, co-founder of Everything Fine, Technical Head at Shramik Rojgar Private Limited.
 
 Built with Next.js (App Router, TypeScript). Design takes its layout cues from kartikdhawan.in and its colours from the Everything Fine palette:
 

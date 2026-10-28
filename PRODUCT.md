@@ -20,7 +20,7 @@ Personal portfolio for Siddharth Sharma. It shows who he is, what he has run, an
 
 ## Positioning
 
-An engineer who also runs businesses. 3+ years building scalable applications, co-founder of a food & beverage brand (Everything Fine), and technical head of Shramic Crossgar Private Limited. He ships real client sites end to end (frontend, Supabase backends, admin dashboards) and has ML/AI work behind him.
+An engineer who also runs businesses. 3+ years building scalable applications, co-founder of a food & beverage brand (Everything Fine), and technical head of Shramik Rojgar Private Limited. He ships real client sites end to end (frontend, Supabase backends, admin dashboards) and has ML/AI work behind him.
 
 ## Capabilities and Constraints
 

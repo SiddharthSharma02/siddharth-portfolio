@@ -8,7 +8,7 @@ export const site = {
   location: "India",
   url: "https://siddharth-portfolio-lilac-eight.vercel.app",
   description:
-    "Siddharth Sharma builds scalable applications. Co-founder of Everything Fine and Technical Head at Shramic Crossgar Private Limited.",
+    "Siddharth Sharma builds scalable applications. Co-founder of Everything Fine and Technical Head at Shramik Rojgar Private Limited.",
   links: {
     github: "https://github.com/SiddharthSharma02",
     // Add these when ready; empty links are hidden.
@@ -27,7 +27,7 @@ export const site = {
 export const facts = [
   { label: "currently in", value: "India" },
   { label: "co-founder of", value: "Everything Fine" },
-  { label: "technical head at", value: "Shramic Crossgar Pvt. Ltd." },
+  { label: "technical head at", value: "Shramik Rojgar Pvt. Ltd." },
   { label: "focused on", value: "scalable products, end to end" },
 ];
 
@@ -51,9 +51,9 @@ export const ventures: Venture[] = [
     linkLabel: "Visit the launch page",
   },
   {
-    name: "Shramic Crossgar",
+    name: "Shramik Rojgar",
     role: "Technical Head",
-    summary: "Where I run the technology side of Shramic Crossgar Private Limited.",
+    summary: "Where I run the technology side of Shramik Rojgar Private Limited.",
     detail:
       "I lead the technology: architecture, product delivery and the engineering calls that decide how well things hold up as the business grows.",
   },
