@@ -65,3 +65,22 @@ export const Moon = ({ className }: P) => (
     <path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" />
   </svg>
 );
+
+export const XLogo = ({ className }: P) => (
+  <svg {...base} className={className}>
+    <path d="M4 4h4.5L20 20h-4.5zM20 4l-6.6 7.4M4 20l6.6-7.4" />
+  </svg>
+);
+
+export const WhatsApp = ({ className }: P) => (
+  <svg {...base} className={className}>
+    <path d="M3.5 20.5 5 16a8.5 8.5 0 1 1 3 3z" />
+    <path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-2-1-.9.8a4 4 0 0 1-2.2-2.2l.8-.9-1-2z" />
+  </svg>
+);
+
+export const Phone = ({ className }: P) => (
+  <svg {...base} className={className}>
+    <path d="M5 4h3.5l1.5 4-2 1.5a11 11 0 0 0 6.5 6.5L16 14l4 1.5V19a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z" />
+  </svg>
+);

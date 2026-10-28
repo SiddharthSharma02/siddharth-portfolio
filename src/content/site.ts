@@ -12,10 +12,16 @@ export const site = {
   links: {
     github: "https://github.com/SiddharthSharma02",
     // Add these when ready; empty links are hidden.
+    instagram: "https://instagram.com/siduism",
+    x: "https://x.com/siduism",
+    // Add these when ready; empty links are hidden.
     linkedin: "",
-    instagram: "",
     resume: "",
   },
+  social: "@siduism",
+  phone: "+91 81973 15150",
+  tel: "tel:+918197315150",
+  whatsapp: "https://wa.me/918197315150",
 };
 
 export const facts = [

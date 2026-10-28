@@ -54,7 +54,9 @@ export function Cursor() {
       const node = el.current;
       if (!node) return;
       node.style.setProperty("--fill", FILL[groundUnder(under)]);
-      node.toggleAttribute("data-hot", !!under?.closest("a, button, .work-row, .product, .mochi-pose"));
+      const big = !!under?.closest(".hero-name, .contact-title");
+      node.toggleAttribute("data-big", big);
+      node.toggleAttribute("data-hot", !big && !!under?.closest("a, button, .work-row, .product, .mochi-pose"));
     };
 
     const tick = () => {

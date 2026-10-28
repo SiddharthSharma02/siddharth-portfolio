@@ -1,24 +1,19 @@
 import Image from "next/image";
 import { experiments, facts, featured, mochi, products, projects, site, ventures } from "@/content/site";
 import { Cursor } from "@/components/Cursor";
-import { ArrowDown, ArrowUpRight, GitHub, Instagram, LinkedIn, Mail } from "@/components/icons";
+import { ArrowDown, ArrowUpRight, GitHub, Instagram, LinkedIn, Mail, Phone, WhatsApp, XLogo } from "@/components/icons";
 import { Reveal } from "@/components/Reveal";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { WorkIndex } from "@/components/WorkIndex";
 
-const nav = [
-  { href: "#about", label: "About" },
-  { href: "#ventures", label: "Ventures" },
-  { href: "#work", label: "Work" },
-  { href: "#mochi", label: "Mochi" },
-  { href: "#contact", label: "Contact" },
-];
 
 export default function Home() {
   const socials = [
     { href: site.links.github, label: "GitHub", Icon: GitHub },
     { href: site.links.linkedin, label: "LinkedIn", Icon: LinkedIn },
     { href: site.links.instagram, label: "Instagram", Icon: Instagram },
+    { href: site.links.x, label: "X", Icon: XLogo },
+    { href: site.links.resume, label: "Résumé", Icon: ArrowUpRight },
   ].filter((s) => s.href);
 
   return (
@@ -40,21 +35,19 @@ export default function Home() {
         <a href="#top" className="monogram" aria-label="Siddharth Sharma, back to top">
           SS
         </a>
-        <nav aria-label="Sections">
-          <ul className="nav-list">
-            {nav.map((n) => (
-              <li key={n.href} data-core={n.href === "#work" || n.href === "#contact" || undefined}>
-                <a href={n.href}>{n.label}</a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <div className="header-handle">
+          <a href={site.links.instagram} target="_blank" rel="noreferrer" aria-label="Instagram @siduism">
+            <Instagram className="icon" />
+          </a>
+          <a href={site.links.x} target="_blank" rel="noreferrer" aria-label="X @siduism">
+            <XLogo className="icon" />
+          </a>
+          <span className="handle-text">{site.social}</span>
+        </div>
         <div className="header-end">
-          {site.links.resume && (
-            <a href={site.links.resume} className="resume-link">
-              Résumé
-            </a>
-          )}
+          <a href="#contact" className="contact-pill">
+            Contact me
+          </a>
           <ThemeToggle />
         </div>
       </header>
@@ -363,6 +356,20 @@ export default function Home() {
               <Mail className="icon" />
               {site.email}
             </a>
+            <ul className="reach" data-reveal>
+              <li>
+                <a href={site.whatsapp} target="_blank" rel="noreferrer" className="reach-link">
+                  <WhatsApp className="icon" />
+                  WhatsApp
+                </a>
+              </li>
+              <li>
+                <a href={site.tel} className="reach-link">
+                  <Phone className="icon" />
+                  {site.phone}
+                </a>
+              </li>
+            </ul>
             <ul className="socials" data-reveal>
               {socials.map(({ href, label, Icon }) => (
                 <li key={label}>

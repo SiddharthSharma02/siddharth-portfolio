@@ -49,8 +49,8 @@ export const viewport: Viewport = {
   ],
 };
 
-// Runs before first paint: picks the theme and decides whether the intro plays this session.
-const boot = `(function(){try{var d=document.documentElement;var t=localStorage.getItem("theme");if(!t){t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}d.dataset.theme=t;var r=matchMedia("(prefers-reduced-motion: reduce)").matches;if(sessionStorage.getItem("intro")||r){d.dataset.intro="skip"}else{sessionStorage.setItem("intro","1")}d.classList.add("js")}catch(e){}})();`;
+// Runs before first paint: picks the theme, and skips the splash for reduced-motion visitors.
+const boot = `(function(){try{var d=document.documentElement;var t=localStorage.getItem("theme");if(!t){t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}d.dataset.theme=t;if(matchMedia("(prefers-reduced-motion: reduce)").matches){d.dataset.intro="skip"}d.classList.add("js")}catch(e){}})();`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
