@@ -17,10 +17,12 @@ export function IntroCount() {
     const el = ref.current;
     if (!el) return;
     let raf = 0;
-    // performance.now() counts from page load, so the count stays in step
-    // with the CSS splash even if this hydrates late.
+    // Start from the moment the CSS splash started, so the count stays in
+    // step with it even if this hydrates late.
+    const splash = el.closest(".intro")?.getAnimations()[0];
+    const start = typeof splash?.startTime === "number" ? splash.startTime : performance.now();
     const tick = () => {
-      const t = Math.min(Math.max((performance.now() - DELAY) / DURATION, 0), 1);
+      const t = Math.min(Math.max((performance.now() - start - DELAY) / DURATION, 0), 1);
       el.textContent = `${Math.round(ease(t) * 100)}’`;
       if (t < 1) raf = requestAnimationFrame(tick);
     };
