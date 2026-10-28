@@ -1,0 +1,400 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-28T10:35:30+00:00",
+  "title": "Design System: Siddharth Sharma",
+  "extensions": {
+    "colorMeta": {
+      "jalebi": {
+        "role": "primary",
+        "displayName": "Jalebi Orange",
+        "canonical": "oklch(68.4% 0.185 44.9)",
+        "tonalRamp": [
+          "oklch(15% 0.046 44.9)",
+          "oklch(27% 0.07 44.9)",
+          "oklch(39% 0.115 44.9)",
+          "oklch(51% 0.159 44.9)",
+          "oklch(63% 0.167 44.9)",
+          "oklch(75% 0.122 44.9)",
+          "oklch(85% 0.085 44.9)",
+          "oklch(95% 0.048 44.9)"
+        ]
+      },
+      "jalebi-deep": {
+        "role": "primary",
+        "displayName": "Jalebi Deep",
+        "canonical": "color-mix(in oklab, #f26b1d 80%, #2b1a12)",
+        "tonalRamp": [
+          "oklch(15% 0.037 44.9)",
+          "oklch(27% 0.057 44.9)",
+          "oklch(39% 0.093 44.9)",
+          "oklch(51% 0.129 44.9)",
+          "oklch(63% 0.135 44.9)",
+          "oklch(75% 0.099 44.9)",
+          "oklch(85% 0.069 44.9)",
+          "oklch(95% 0.039 44.9)"
+        ]
+      },
+      "pista": {
+        "role": "secondary",
+        "displayName": "Pista Green",
+        "canonical": "oklch(73% 0.086 138.1)",
+        "tonalRamp": [
+          "oklch(15% 0.021 138.1)",
+          "oklch(27% 0.033 138.1)",
+          "oklch(39% 0.053 138.1)",
+          "oklch(51% 0.074 138.1)",
+          "oklch(63% 0.077 138.1)",
+          "oklch(75% 0.057 138.1)",
+          "oklch(85% 0.04 138.1)",
+          "oklch(95% 0.022 138.1)"
+        ]
+      },
+      "mithai": {
+        "role": "tertiary",
+        "displayName": "Mithai Pink",
+        "canonical": "oklch(76% 0.129 357.2)",
+        "tonalRamp": [
+          "oklch(15% 0.032 357.2)",
+          "oklch(27% 0.049 357.2)",
+          "oklch(39% 0.08 357.2)",
+          "oklch(51% 0.111 357.2)",
+          "oklch(63% 0.116 357.2)",
+          "oklch(75% 0.085 357.2)",
+          "oklch(85% 0.059 357.2)",
+          "oklch(95% 0.034 357.2)"
+        ]
+      },
+      "chai": {
+        "role": "neutral",
+        "displayName": "Chai Cream",
+        "canonical": "oklch(97.1% 0.025 78.9)",
+        "tonalRamp": [
+          "oklch(15% 0.006 78.9)",
+          "oklch(27% 0.01 78.9)",
+          "oklch(39% 0.015 78.9)",
+          "oklch(51% 0.022 78.9)",
+          "oklch(63% 0.023 78.9)",
+          "oklch(75% 0.016 78.9)",
+          "oklch(85% 0.011 78.9)",
+          "oklch(95% 0.007 78.9)"
+        ]
+      },
+      "kadak": {
+        "role": "neutral",
+        "displayName": "Kadak Ink",
+        "canonical": "oklch(23.8% 0.031 46)",
+        "tonalRamp": [
+          "oklch(15% 0.008 46.0)",
+          "oklch(27% 0.012 46.0)",
+          "oklch(39% 0.019 46.0)",
+          "oklch(51% 0.027 46.0)",
+          "oklch(63% 0.028 46.0)",
+          "oklch(75% 0.02 46.0)",
+          "oklch(85% 0.014 46.0)",
+          "oklch(95% 0.008 46.0)"
+        ]
+      },
+      "muted-on-chai": {
+        "role": "neutral",
+        "displayName": "Muted on Chai",
+        "canonical": "color-mix(in oklab, #2b1a12 72%, #fff4e3)",
+        "tonalRamp": [
+          "oklch(15% 0.006 46.0)",
+          "oklch(27% 0.01 46.0)",
+          "oklch(39% 0.015 46.0)",
+          "oklch(51% 0.022 46.0)",
+          "oklch(63% 0.023 46.0)",
+          "oklch(75% 0.016 46.0)",
+          "oklch(85% 0.011 46.0)",
+          "oklch(95% 0.007 46.0)"
+        ]
+      },
+      "muted-on-kadak": {
+        "role": "neutral",
+        "displayName": "Muted on Kadak",
+        "canonical": "color-mix(in oklab, #fff4e3 70%, #2b1a12)",
+        "tonalRamp": [
+          "oklch(15% 0.006 70.0)",
+          "oklch(27% 0.01 70.0)",
+          "oklch(39% 0.015 70.0)",
+          "oklch(51% 0.022 70.0)",
+          "oklch(63% 0.023 70.0)",
+          "oklch(75% 0.016 70.0)",
+          "oklch(85% 0.011 70.0)",
+          "oklch(95% 0.007 70.0)"
+        ]
+      },
+      "polaroid-dark": {
+        "role": "neutral",
+        "displayName": "Polaroid Dark",
+        "canonical": "color-mix(in oklab, #fff4e3 92%, #2b1a12)",
+        "tonalRamp": [
+          "oklch(15% 0.005 78.9)",
+          "oklch(27% 0.008 78.9)",
+          "oklch(39% 0.014 78.9)",
+          "oklch(51% 0.019 78.9)",
+          "oklch(63% 0.02 78.9)",
+          "oklch(75% 0.015 78.9)",
+          "oklch(85% 0.01 78.9)",
+          "oklch(95% 0.006 78.9)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero name only; rises from overflow masks."
+      },
+      "headline-close": {
+        "displayName": "Headline Close",
+        "purpose": "Contact closing line; last word in the italic voice."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles, balanced, max 16ch."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Project and venture names in ruled index rows."
+      },
+      "italic-voice": {
+        "displayName": "Italic Voice",
+        "purpose": "Venture summaries and display punchline words."
+      },
+      "italic-fact": {
+        "displayName": "Italic Fact",
+        "purpose": "Right-aligned values in the hero facts table."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Default running text."
+      },
+      "body-lead": {
+        "displayName": "Body Lead",
+        "purpose": "About prose, max 60ch, muted with full-fg strong."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Nav, meta columns, fact keys, captions."
+      },
+      "label-small": {
+        "displayName": "Label Small",
+        "purpose": "Stack chips, footer, side email."
+      }
+    },
+    "shadows": [
+      {
+        "name": "preview-lift",
+        "value": "0 24px 48px -16px color-mix(in oklab, #2b1a12 45%, transparent)",
+        "purpose": "Cursor-riding project screenshot preview."
+      },
+      {
+        "name": "polaroid-drop",
+        "value": "0 18px 40px -18px color-mix(in oklab, #2b1a12 55%, transparent)",
+        "purpose": "Tilted taped photographs."
+      },
+      {
+        "name": "live-halo",
+        "value": "0 0 0 3px color-mix(in oklab, #8db580 30%, transparent)",
+        "purpose": "Status ring around the pista live dot (not elevation)."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "Reveals, rises, underline sweeps, state changes."
+      },
+      {
+        "name": "ease-in-out",
+        "value": "cubic-bezier(0.77, 0, 0.175, 1)",
+        "purpose": "Intro panel wipe and intro exit clip."
+      },
+      {
+        "name": "rise",
+        "value": "1100ms ease-out, translateY(105%) -> 0",
+        "purpose": "Hero name words rising from masks."
+      },
+      {
+        "name": "reveal",
+        "value": "opacity 700ms / transform 900ms ease-out, 28px lift, 60ms stagger",
+        "purpose": "Scroll reveal of [data-reveal] elements."
+      },
+      {
+        "name": "underline-sweep",
+        "value": "background-size 300ms ease-out (nav), 450ms (project marker)",
+        "purpose": "Link hover affordance."
+      },
+      {
+        "name": "preview-clip",
+        "value": "clip-path inset 380ms ease-out, follow factor 0.18",
+        "purpose": "Project preview open/close and trailing cursor follow."
+      },
+      {
+        "name": "theme-fade",
+        "value": "background-color/color 400ms ease-out",
+        "purpose": "Theme switch."
+      },
+      {
+        "name": "badge-spin",
+        "value": "18s linear infinite",
+        "purpose": "Rotating badge ring; disabled under reduced motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "mobile",
+        "value": "760px",
+        "note": "max-width; single column, nav hidden, header 64px"
+      },
+      {
+        "name": "tablet",
+        "value": "1080px",
+        "note": "max-width; badge hidden, ventures 2-col, lab drops stack"
+      },
+      {
+        "name": "side-email",
+        "value": "1100px",
+        "note": "min-width; vertical email appears"
+      }
+    ],
+    "focus": {
+      "value": "2px solid outline, 4px offset, 4px radius",
+      "note": "Ring colour must reach 3:1 against its ground; the shipped jalebi ring does not on chai (2.8:1) or on the jalebi band (invisible). Not canonized; see report."
+    }
+  },
+  "components": [
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Header and footer links; 1px underline sweeps in on hover.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-mono\" href=\"#\">SS</a><a class=\"ds-nav-link\" href=\"#\">About</a><a class=\"ds-nav-link\" href=\"#\">Ventures</a><a class=\"ds-nav-link\" href=\"#\">Work</a><a class=\"ds-nav-link\" href=\"#\">Contact</a></nav>",
+      "css": ":host{--jalebi:#f26b1d;--chai:#fff4e3;--kadak:#2b1a12;--pista:#8db580;--mithai:#f28db2;--ease-out:cubic-bezier(0.23,1,0.32,1);--rule:color-mix(in oklab,#2b1a12 18%,transparent);} .ds-nav{display:flex;align-items:center;gap:32px;background:var(--chai);color:var(--kadak);padding:16px 24px;font-family:'Hanken Grotesk',system-ui,sans-serif;font-size:0.875rem;} .ds-mono{font-family:'Rozha One',Georgia,serif;font-size:1.5rem;line-height:1;margin-right:auto;color:inherit;text-decoration:none;} .ds-nav-link{color:inherit;text-decoration:none;padding-block:4px;background:linear-gradient(currentColor,currentColor) no-repeat 0 100%/0% 1px;transition:background-size 300ms var(--ease-out);} .ds-nav-link:hover{background-size:100% 1px;} .ds-nav a:focus-visible{outline:2px solid var(--kadak);outline-offset:4px;border-radius:4px;}"
+    },
+    {
+      "name": "Theme Toggle",
+      "kind": "button",
+      "refersTo": "theme-toggle",
+      "description": "40px hairline circle; border firms on hover, presses to 0.94.",
+      "html": "<button class=\"ds-toggle\" aria-label=\"Switch theme\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\"><path d=\"M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z\"/></svg></button>",
+      "css": ":host{--jalebi:#f26b1d;--chai:#fff4e3;--kadak:#2b1a12;--pista:#8db580;--mithai:#f28db2;--ease-out:cubic-bezier(0.23,1,0.32,1);--rule:color-mix(in oklab,#2b1a12 18%,transparent);} .ds-toggle{width:40px;height:40px;display:grid;place-items:center;border:1px solid var(--rule);border-radius:999px;background:var(--chai);color:var(--kadak);cursor:pointer;transition:border-color 200ms ease,transform 160ms var(--ease-out);} .ds-toggle:hover{border-color:var(--kadak);} .ds-toggle:active{transform:scale(0.94);} .ds-toggle:focus-visible{outline:2px solid var(--kadak);outline-offset:4px;}"
+    },
+    {
+      "name": "Text Link",
+      "kind": "button",
+      "refersTo": "text-link",
+      "description": "Bold inline link with 1.5px underline and nudging arrow; shown on the jalebi band.",
+      "html": "<div class=\"ds-band\"><a class=\"ds-text-link\" href=\"#\">Visit Everything Fine<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 17 17 7M8 7h9v9\"/></svg></a></div>",
+      "css": ":host{--jalebi:#f26b1d;--chai:#fff4e3;--kadak:#2b1a12;--pista:#8db580;--mithai:#f28db2;--ease-out:cubic-bezier(0.23,1,0.32,1);--rule:color-mix(in oklab,#2b1a12 18%,transparent);} .ds-band{background:var(--jalebi);color:var(--kadak);padding:32px;font-family:'Hanken Grotesk',system-ui,sans-serif;} .ds-text-link{display:inline-flex;align-items:center;gap:6px;color:inherit;text-decoration:none;font-weight:600;border-bottom:1.5px solid currentColor;padding-bottom:2px;} .ds-text-link svg{transition:transform 250ms var(--ease-out);} .ds-text-link:hover svg{transform:translate(2px,-2px);} .ds-text-link:focus-visible{outline:2px solid var(--kadak);outline-offset:4px;border-radius:4px;}"
+    },
+    {
+      "name": "Stack Chip",
+      "kind": "chip",
+      "refersTo": "stack-chip",
+      "description": "Unfilled hairline pill listing a project's stack.",
+      "html": "<ul class=\"ds-chips\"><li>Next.js</li><li>Supabase</li><li>Postgres</li></ul>",
+      "css": ":host{--jalebi:#f26b1d;--chai:#fff4e3;--kadak:#2b1a12;--pista:#8db580;--mithai:#f28db2;--ease-out:cubic-bezier(0.23,1,0.32,1);--rule:color-mix(in oklab,#2b1a12 18%,transparent);} .ds-chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:16px;background:var(--chai);color:var(--kadak);font-family:'Hanken Grotesk',system-ui,sans-serif;font-size:0.8125rem;} .ds-chips li{padding:3px 10px;border:1px solid var(--rule);border-radius:999px;}"
+    },
+    {
+      "name": "Social Pill",
+      "kind": "button",
+      "refersTo": "social-pill",
+      "description": "Outline pill on the inverse contact band; fills solid on hover.",
+      "html": "<div class=\"ds-inv\"><a class=\"ds-social\" href=\"#\">GitHub</a><a class=\"ds-social\" href=\"#\">LinkedIn</a></div>",
+      "css": ":host{--jalebi:#f26b1d;--chai:#fff4e3;--kadak:#2b1a12;--pista:#8db580;--mithai:#f28db2;--ease-out:cubic-bezier(0.23,1,0.32,1);--rule:color-mix(in oklab,#2b1a12 18%,transparent);} .ds-inv{background:var(--kadak);color:var(--chai);padding:24px;display:flex;gap:12px;font-family:'Hanken Grotesk',system-ui,sans-serif;} .ds-social{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border:1px solid color-mix(in oklab,var(--chai) 25%,transparent);border-radius:999px;color:inherit;text-decoration:none;font-size:0.9375rem;transition:background-color 200ms ease,color 200ms ease,border-color 200ms ease;} .ds-social:hover{background:var(--chai);color:var(--kadak);border-color:var(--chai);} .ds-social:focus-visible{outline:2px solid var(--jalebi);outline-offset:4px;}"
+    },
+    {
+      "name": "Project Index Row",
+      "kind": "custom",
+      "refersTo": "work-row",
+      "description": "Signature ruled row: display name with jalebi marker sweep, muted summary, chips, meta column with live dot.",
+      "html": "<ol class=\"ds-index\"><li class=\"ds-row\"><div><h3 class=\"ds-row-name\"><a href=\"#\">The Mountain Chapters <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 17 17 7M8 7h9v9\"/></svg></a></h3><p class=\"ds-row-sum\">Travel platform with bookings and an admin dashboard.</p></div><div class=\"ds-row-meta\"><span>2025</span><span class=\"ds-live\">live</span></div></li></ol>",
+      "css": ":host{--jalebi:#f26b1d;--chai:#fff4e3;--kadak:#2b1a12;--pista:#8db580;--mithai:#f28db2;--ease-out:cubic-bezier(0.23,1,0.32,1);--rule:color-mix(in oklab,#2b1a12 18%,transparent);} .ds-index{list-style:none;margin:0;padding:24px;background:var(--chai);color:var(--kadak);font-family:'Hanken Grotesk',system-ui,sans-serif;} .ds-row{display:grid;grid-template-columns:1fr auto;gap:16px 32px;padding-block:28px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);} .ds-row-name{margin:0;font-family:'Rozha One',Georgia,serif;font-weight:400;font-size:2.5rem;line-height:1.05;letter-spacing:-0.02em;} .ds-row-name a{color:inherit;text-decoration:none;background:linear-gradient(var(--jalebi),var(--jalebi)) no-repeat 0 88%/0% 32%;transition:background-size 450ms var(--ease-out);} .ds-row-name svg{width:0.6em;height:0.6em;transition:transform 300ms var(--ease-out);} .ds-row:hover .ds-row-name a{background-size:100% 32%;} .ds-row:hover .ds-row-name svg{transform:translate(3px,-3px);} .ds-row-name a:focus-visible{outline:2px solid var(--kadak);outline-offset:4px;} .ds-row-sum{margin:10px 0 0;color:#604f45;max-width:62ch;} .ds-row-meta{display:flex;flex-direction:column;align-items:flex-end;gap:10px;font-size:0.875rem;color:#604f45;font-variant-numeric:tabular-nums;} .ds-live{display:inline-flex;align-items:center;gap:6px;} .ds-live::before{content:'';width:8px;height:8px;border-radius:999px;background:var(--pista);box-shadow:0 0 0 3px color-mix(in oklab,var(--pista) 30%,transparent);}"
+    },
+    {
+      "name": "Rotating Badge",
+      "kind": "custom",
+      "refersTo": "badge-arrow",
+      "description": "128px circular-text badge around a jalebi arrow disc; spins every 18s.",
+      "html": "<a class=\"ds-badge\" href=\"#\" aria-label=\"See the work\"><svg class=\"ds-ring\" viewBox=\"0 0 120 120\"><defs><path id=\"ds-r\" d=\"M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0\"/></defs><text><textPath href=\"#ds-r\" textLength=\"286\" lengthAdjust=\"spacing\">see the work · see the work ·</textPath></text></svg><span class=\"ds-disc\"><svg width=\"30\" height=\"30\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 5v14M6 13l6 6 6-6\"/></svg></span></a>",
+      "css": ":host{--jalebi:#f26b1d;--chai:#fff4e3;--kadak:#2b1a12;--pista:#8db580;--mithai:#f28db2;--ease-out:cubic-bezier(0.23,1,0.32,1);--rule:color-mix(in oklab,#2b1a12 18%,transparent);} .ds-badge{position:relative;width:128px;height:128px;display:grid;place-items:center;border-radius:999px;color:var(--kadak);background:var(--chai);} .ds-ring{position:absolute;inset:0;width:100%;height:100%;font:11px 'Hanken Grotesk',sans-serif;text-transform:uppercase;fill:currentColor;animation:ds-spin 18s linear infinite;} .ds-disc{display:grid;place-items:center;padding:10px;border-radius:999px;background:var(--jalebi);color:var(--kadak);transition:transform 300ms var(--ease-out);} .ds-badge:hover .ds-disc{transform:translateY(4px);} .ds-badge:focus-visible{outline:2px solid var(--kadak);outline-offset:4px;} @keyframes ds-spin{to{transform:rotate(360deg);}} @media (prefers-reduced-motion:reduce){.ds-ring{animation:none;}}"
+    },
+    {
+      "name": "Polaroid",
+      "kind": "card",
+      "refersTo": "polaroid",
+      "description": "Tilted chai-paper photo with soft drop and mithai tape strip.",
+      "html": "<div class=\"ds-stage\"><figure class=\"ds-polaroid\"><div class=\"ds-photo\"></div></figure></div>",
+      "css": ":host{--jalebi:#f26b1d;--chai:#fff4e3;--kadak:#2b1a12;--pista:#8db580;--mithai:#f28db2;--ease-out:cubic-bezier(0.23,1,0.32,1);--rule:color-mix(in oklab,#2b1a12 18%,transparent);} .ds-stage{padding:40px;background:var(--chai);} .ds-polaroid{position:relative;width:180px;margin:0;padding:10px 10px 36px;background:var(--chai);rotate:-2.5deg;box-shadow:0 18px 40px -18px color-mix(in oklab,var(--kadak) 55%,transparent);} .ds-polaroid::before{content:'';position:absolute;top:-12px;left:50%;width:84px;height:24px;translate:-50% 0;rotate:-3deg;background:color-mix(in oklab,var(--mithai) 80%,transparent);} .ds-photo{aspect-ratio:3/4;background:linear-gradient(160deg,#c65a1f,#2b1a12);}"
+    },
+    {
+      "name": "Contact Email",
+      "kind": "custom",
+      "refersTo": "contact-band",
+      "description": "Large email link with jalebi underline on the inverse band; gap widens on hover.",
+      "html": "<div class=\"ds-contact\"><h2>Got something worth <em>building?</em></h2><a class=\"ds-email\" href=\"#\">hello@example.com</a></div>",
+      "css": ":host{--jalebi:#f26b1d;--chai:#fff4e3;--kadak:#2b1a12;--pista:#8db580;--mithai:#f28db2;--ease-out:cubic-bezier(0.23,1,0.32,1);--rule:color-mix(in oklab,#2b1a12 18%,transparent);} .ds-contact{background:var(--kadak);color:var(--chai);padding:40px;font-family:'Hanken Grotesk',system-ui,sans-serif;} .ds-contact h2{margin:0 0 32px;font-family:'Rozha One',Georgia,serif;font-weight:400;font-size:3rem;line-height:0.95;letter-spacing:-0.025em;} .ds-contact em{font-family:'Instrument Serif',Georgia,serif;font-style:italic;color:var(--jalebi);} .ds-email{display:inline-flex;gap:14px;font-size:1.5rem;color:inherit;text-decoration:none;border-bottom:2px solid var(--jalebi);padding-bottom:6px;transition:gap 300ms var(--ease-out);} .ds-email:hover{gap:20px;} .ds-email:focus-visible{outline:2px solid var(--chai);outline-offset:4px;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Mithai Shop Ledger",
+    "overview": "An editorial portfolio painted in a sweet-shop palette. The page reads like a well-kept shop ledger: an oversized fat-face name across nearly the full width, hairline-ruled tables of facts, ventures and projects, and an italic serif voice that speaks in short asides. The Everything Fine brand palette is used at full commitment. Jalebi orange takes over whole bands instead of acting as a timid accent, chai cream and kadak ink swap roles between light and dark themes, and pista and mithai add small, specific notes of life.\n\nDensity is low and the type scale is high. Each section is one idea set in display type, followed by ruled rows that scan quickly. Depth comes almost entirely from colour bands and hairlines. The only lifted objects are photographs and the cursor-riding project preview. Motion is editorial: words rise out of masks, rows reveal on scroll, and underlines sweep in. Nothing bounces.\n\nThe build rejects the dark dev-portfolio with a neon accent and the grid of identical project cards. Work is presented as an index of rows, never as a card grid.",
+    "keyCharacteristics": [
+      "Indian fat-face display (Rozha One) at poster scale, always weight 400 with negative tracking.",
+      "Instrument Serif italic as the second voice for values, summaries and the punchline word.",
+      "Whole-band colour: one jalebi band (ventures) and one inverse band (contact).",
+      "1px hairline rules carry the structure; there are no card boxes.",
+      "Light and dark themes are mirror images of the same two brand neutrals.",
+      "Pill-round controls, gently rounded photographs, and tilted polaroids taped in mithai and pista."
+    ],
+    "rules": [
+      {
+        "name": "The Whole-Band Rule",
+        "body": "Jalebi is a surface, not a sprinkle. When orange appears at scale, it fills a full-bleed band with kadak text on it. Elsewhere it shrinks to a single functional mark (the marker sweep, the underline, the arrow disc).",
+        "section": "colors"
+      },
+      {
+        "name": "The Theme Mirror Rule",
+        "body": "Light and dark themes swap chai and kadak. They never introduce a third neutral. The inverse band flips with them. Its accent is jalebi on kadak, and it falls back to kadak on chai, because jalebi on chai fails as text (2.8:1).",
+        "section": "colors"
+      },
+      {
+        "name": "The One Wink Rule",
+        "body": "Mithai pink is limited to the name dot, text selection and polaroid tape. If a new surface wants pink, it takes the place of one of these uses.",
+        "section": "colors"
+      },
+      {
+        "name": "The Fat-Face-At-400 Rule",
+        "body": "Rozha One is always weight 400 with negative tracking (-0.02 to -0.03em). Never bold it, never letter-space it open, and never use it under ~1.5rem (the monogram is the floor).",
+        "section": "typography"
+      },
+      {
+        "name": "The Second Voice Rule",
+        "body": "Instrument Serif appears only in italic and only for values, summaries or one punchline word. It is never used for running paragraphs or for UI labels.",
+        "section": "typography"
+      },
+      {
+        "name": "The Paper-Only Lift Rule",
+        "body": "Only photographs and screenshots cast shadows. Text, controls and rows stay flat and are separated by hairlines.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** let jalebi fill a full-bleed band with kadak text when orange appears at scale (The Whole-Band Rule).",
+      "**Do** switch jalebi to jalebi-deep before using it as text on chai, and only at large italic display size.",
+      "**Do** separate rows and table entries with 1px foreground hairlines at 16–18% (30% on the jalebi band).",
+      "**Do** set Rozha One at weight 400 with negative tracking, and give the punchline word to Instrument Serif italic.",
+      "**Do** gate hover-only effects on `(hover: hover) and (pointer: fine)` and give touch an inline equivalent.",
+      "**Do** pair the pista dot with the word \"live\"."
+    ],
+    "donts": [
+      "**Don't** present work as a grid of identical cards. Use the ruled index.",
+      "**Don't** build a dark dev-portfolio with a neon accent. The dark theme is kadak and chai, with jalebi as its only loud colour.",
+      "**Don't** add a third neutral, grey or pure black/white. Every neutral is chai, kadak or a mix of the two.",
+      "**Don't** use mithai pink beyond the name dot, selection and tape (The One Wink Rule).",
+      "**Don't** put shadows on text, controls or rows (The Paper-Only Lift Rule).",
+      "**Don't** bold or open-track Rozha One."
+    ]
+  }
+}

@@ -40,7 +40,7 @@ export default function Home() {
         <nav aria-label="Sections">
           <ul className="nav-list">
             {nav.map((n) => (
-              <li key={n.href}>
+              <li key={n.href} data-core={n.href === "#work" || n.href === "#contact" || undefined}>
                 <a href={n.href}>{n.label}</a>
               </li>
             ))}
@@ -100,7 +100,6 @@ export default function Home() {
 
             <div className="hero-aside">
               <p className="hero-tagline">
-                <span className="tag-small">— {site.role.toLowerCase()}</span>
                 <span className="tag-big">Builds that</span>
                 <span className="tag-italic">hold up.</span>
               </p>
@@ -160,8 +159,8 @@ export default function Home() {
             <div className="venture-list">
               {ventures.map((v) => (
                 <article className="venture" key={v.name} data-reveal>
-                  <p className="venture-role">{v.role}</p>
                   <h3 className="venture-name">{v.name}</h3>
+                  <p className="venture-role">{v.role}</p>
                   <div className="venture-body">
                     <p className="venture-summary">{v.summary}</p>
                     <p>{v.detail}</p>
@@ -220,7 +219,7 @@ export default function Home() {
             </p>
           </div>
           <div className="offline-photos">
-            <figure className="offline-photo tilt-l" data-reveal>
+            <figure className="offline-photo" data-reveal>
               <Image
                 src="/images/siddharth-gym.jpg"
                 alt="Siddharth in the gym, mirror selfie with headphones on"
@@ -229,7 +228,7 @@ export default function Home() {
                 sizes="(max-width: 760px) 46vw, 26vw"
               />
             </figure>
-            <figure className="offline-photo tilt-r" data-reveal>
+            <figure className="offline-photo offset" data-reveal>
               <Image
                 src="/images/siddharth-mirror.jpg"
                 alt="Siddharth in a striped shirt, mirror selfie"

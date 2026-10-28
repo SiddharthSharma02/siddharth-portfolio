@@ -31,6 +31,7 @@
   --inverse-muted: color-mix(in oklab, var(--chai) 72%, var(--kadak));
   --inverse-accent: var(--jalebi);
   --photo-edge: color-mix(in oklab, var(--kadak) 12%, transparent);
+  --focus: var(--kadak);
   color-scheme: light;
 }
 
@@ -44,6 +45,7 @@
   --inverse-muted: color-mix(in oklab, var(--kadak) 74%, var(--chai));
   --inverse-accent: var(--kadak);
   --photo-edge: color-mix(in oklab, var(--chai) 14%, transparent);
+  --focus: var(--jalebi);
   color-scheme: dark;
 }
 
@@ -76,7 +78,7 @@ body {
 a { color: inherit; text-decoration: none; }
 
 :focus-visible {
-  outline: 2px solid var(--jalebi);
+  outline: 2px solid var(--focus);
   outline-offset: 4px;
   border-radius: 4px;
 }
@@ -281,13 +283,12 @@ a { color: inherit; text-decoration: none; }
 
 .hero-aside { display: flex; align-items: flex-end; gap: clamp(16px, 2.4vw, 32px); }
 .hero-tagline { display: grid; justify-items: end; text-align: right; line-height: 0.95; }
-.tag-small { font-size: 0.875rem; color: var(--muted); margin-bottom: 10px; }
-.tag-big { font-family: var(--display); font-size: clamp(2.25rem, 4.6vw, 4.5rem); letter-spacing: -0.02em; }
-.tag-italic { font-family: var(--italic); font-style: italic; font-size: clamp(2.5rem, 5vw, 5rem); color: var(--jalebi); }
+.tag-big { font-family: var(--display); font-size: clamp(2.25rem, 5vw, 5rem); letter-spacing: -0.02em; }
+.tag-italic { font-family: var(--italic); font-style: italic; font-size: clamp(2.5rem, 5.6vw, 5.75rem); color: var(--jalebi); }
 :root[data-theme="light"] .tag-italic { color: color-mix(in oklab, var(--jalebi) 80%, var(--kadak)); }
 
 .hero-photo {
-  width: clamp(150px, 15vw, 220px);
+  width: clamp(160px, 21vw, 320px);
   aspect-ratio: 3 / 4;
   overflow: hidden;
   border-radius: 4px;
@@ -359,12 +360,12 @@ a { color: inherit; text-decoration: none; }
 .about-photo figcaption { margin-top: 12px; font-size: 0.875rem; color: var(--muted); }
 
 /* ---------- Ventures (Jalebi band) ---------- */
-.ventures { background: var(--jalebi); color: var(--kadak); }
+.ventures { background: var(--jalebi); color: var(--kadak); --focus: var(--kadak); }
 .ventures ::selection { background: var(--kadak); color: var(--chai); }
 .venture-list { margin-top: clamp(48px, 7vw, 96px); }
 .venture {
   display: grid;
-  grid-template-columns: 180px 1fr 1.1fr;
+  grid-template-columns: 1fr 160px 1.1fr;
   gap: clamp(16px, 4vw, 56px);
   padding-block: clamp(28px, 4vw, 48px);
   border-top: 1px solid color-mix(in oklab, var(--kadak) 30%, transparent);
@@ -498,28 +499,14 @@ a { color: inherit; text-decoration: none; }
 .offline { display: grid; grid-template-columns: 1fr 1.3fr; gap: 24px clamp(40px, 6vw, 96px); align-items: center; }
 .offline-copy { display: grid; gap: 24px; }
 .offline-note { max-width: 34ch; color: var(--muted); font-size: 1.125rem; }
-.offline-photos { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(16px, 2.5vw, 32px); }
-.offline-photo { position: relative; padding: 10px 10px 36px; background: var(--chai); box-shadow: 0 18px 40px -18px color-mix(in oklab, var(--kadak) 55%, transparent); }
-:root[data-theme="dark"] .offline-photo { background: color-mix(in oklab, var(--chai) 92%, var(--kadak)); }
+.offline-photos { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: clamp(16px, 2.5vw, 32px); }
+.offline-photo { overflow: hidden; border-radius: 4px; outline: 1px solid var(--photo-edge); outline-offset: -1px; }
 .offline-photo img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
-.offline-photo::before {
-  content: "";
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  width: 84px;
-  height: 24px;
-  translate: -50% 0;
-  background: color-mix(in oklab, var(--mithai) 80%, transparent);
-  rotate: -3deg;
-  z-index: 1;
-}
-.tilt-l { rotate: -2.5deg; }
-.tilt-r { rotate: 2deg; margin-top: 48px; }
-.offline-photo.tilt-r::before { background: color-mix(in oklab, var(--pista) 85%, transparent); rotate: 4deg; }
+.offline-photo.offset { margin-top: clamp(48px, 8vw, 120px); }
 
 /* ---------- Contact ---------- */
-.contact { background: var(--inverse-bg); color: var(--inverse-fg); }
+.contact { background: var(--jalebi); color: var(--kadak); --focus: var(--kadak); }
+.contact ::selection { background: var(--kadak); color: var(--chai); }
 .contact .section { padding-bottom: clamp(64px, 9vw, 120px); }
 .contact-title {
   font-family: var(--display);
@@ -530,14 +517,14 @@ a { color: inherit; text-decoration: none; }
   max-width: 12ch;
   text-wrap: balance;
 }
-.contact-title em { font-family: var(--italic); font-style: italic; color: var(--inverse-accent); }
+.contact-title em { font-family: var(--italic); font-style: italic; }
 .contact-email {
   margin-top: clamp(40px, 5vw, 64px);
   display: inline-flex;
   align-items: center;
   gap: 14px;
   font-size: clamp(1.25rem, 3vw, 2.25rem);
-  border-bottom: 2px solid var(--jalebi);
+  border-bottom: 2px solid var(--kadak);
   padding-bottom: 6px;
   overflow-wrap: anywhere;
   transition: gap 300ms var(--ease-out);
@@ -549,13 +536,13 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   gap: 8px;
   padding: 10px 18px;
-  border: 1px solid color-mix(in oklab, var(--inverse-fg) 25%, transparent);
+  border: 1px solid color-mix(in oklab, var(--kadak) 40%, transparent);
   border-radius: 999px;
   font-size: 0.9375rem;
   transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
 }
 @media (hover: hover) and (pointer: fine) {
-  .socials a:hover { background: var(--inverse-fg); color: var(--inverse-bg); border-color: var(--inverse-fg); }
+  .socials a:hover { background: var(--kadak); color: var(--jalebi); border-color: var(--kadak); }
 }
 .site-footer {
   max-width: var(--maxw);
@@ -566,14 +553,14 @@ a { color: inherit; text-decoration: none; }
   gap: 16px;
   flex-wrap: wrap;
   font-size: 0.8125rem;
-  color: var(--inverse-muted);
-  border-top: 1px solid color-mix(in oklab, var(--inverse-fg) 15%, transparent);
+  border-top: 1px solid color-mix(in oklab, var(--kadak) 25%, transparent);
 }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1080px) {
   .hero-grid { grid-template-columns: 1fr auto; }
-  .badge { display: none; }
+  .badge { grid-column: 2; grid-row: 1; align-self: start; justify-self: end; width: 104px; height: 104px; }
+  .hero-aside { grid-column: 1 / -1; justify-content: flex-end; }
   .venture { grid-template-columns: 1fr 1.2fr; }
   .venture-role { grid-column: 1 / -1; }
   .lab-item { grid-template-columns: 1fr 2fr 48px 20px; }
@@ -582,10 +569,12 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width: 760px) {
   :root { --header-h: 64px; }
-  .nav-list { display: none; }
+  .nav-list li:not([data-core]) { display: none; }
+  .nav-list { gap: 20px; }
   .hero { min-height: 100svh; gap: 40px; }
   .hero-name { font-size: 20.5vw; flex-direction: column; line-height: 0.9; }
-  .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 32px; position: relative; }
+  .badge { position: absolute; right: 0; bottom: calc(53vw - 52px); z-index: 2; background: var(--bg); }
   .hero-aside { justify-content: space-between; }
   .hero-photo { width: 40vw; }
   .tag-big { font-size: 2rem; }
