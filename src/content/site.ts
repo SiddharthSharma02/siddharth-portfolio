@@ -6,7 +6,7 @@ export const site = {
   role: "Engineer & co-founder",
   email: "siddharth44sharma@gmail.com",
   location: "India",
-  url: "https://siddharth-portfolio.vercel.app",
+  url: "https://siddharth-portfolio-lilac-eight.vercel.app",
   description:
     "Siddharth Sharma builds scalable applications. Co-founder of Everything Fine and Technical Head at Shramic Crossgar Private Limited.",
   links: {
