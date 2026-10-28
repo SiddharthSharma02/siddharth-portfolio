@@ -316,7 +316,8 @@ a { color: inherit; text-decoration: none; }
   outline: 1px solid var(--photo-edge);
   outline-offset: -1px;
 }
-.hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.hero-photo img,
+.hero-video { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; background: var(--kadak); }
 
 .badge {
   position: relative;
@@ -867,6 +868,4 @@ html.cursor-on .cursor { opacity: 1; }
   .deck-shot { animation: none; opacity: 1; }
   .deck-shot:not(:first-of-type) { display: none; }
 }
-
-
 

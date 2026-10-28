@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { experiments, facts, featured, mochi, products, projects, site, ventures } from "@/content/site";
 import { Cursor } from "@/components/Cursor";
+import { HeroVideo } from "@/components/HeroVideo";
 import { ArrowDown, ArrowUpRight, GitHub, Instagram, LinkedIn, Mail, Phone, WhatsApp, XLogo } from "@/components/icons";
 import { Reveal } from "@/components/Reveal";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -100,14 +101,7 @@ export default function Home() {
                 <span className="tag-italic">hold up.</span>
               </p>
               <figure className="hero-photo">
-                <Image
-                  src="/images/siddharth-festive.jpg"
-                  alt="Siddharth Sharma in an ivory kurta and brocade jacket"
-                  width={1350}
-                  height={1800}
-                  sizes="(max-width: 760px) 44vw, 220px"
-                  preload
-                />
+                <HeroVideo />
               </figure>
             </div>
           </div>
